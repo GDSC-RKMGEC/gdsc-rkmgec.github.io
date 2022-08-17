@@ -85,18 +85,18 @@
             <hr class="star-dark mb-5">
             <div class="row" data-aos="fade-up" style="border-color: rgb(0,0,0);">
                 <div class="col-lg-8 mx-auto">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="sheetdb-form" name="sentMessage" novalidate="novalidate" action="https://sheetdb.io/api/v1/8odsr7r0mgkhg" method="post">
                         <div class="control-group">
-                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="name" required="" placeholder="Name" style="border-width: 5px; color:#34A853"><label class="form-label">Name</label><small class="form-text text-danger help-block"></small></div>
+                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="name" required="" placeholder="Name" name="name" style="border-width: 5px; color:#34A853"><label class="form-label">Name</label><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div class="control-group">
-                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="email" id="email" required="" placeholder="Email Address" style="color:#EA4335;"><label class="form-label">Email Address</label><small class="form-text text-danger help-block"></small></div>
+                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="email" id="email" required="" placeholder="Email Address" name="email"  style="color:#EA4335;"><label class="form-label">Email Address</label><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div class="control-group">
-                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="tel" id="phone" required="" placeholder="Phone Number" style="color:#4285F4;"><label class="form-label">Title</label><small class="form-text text-danger help-block"></small></div>
+                            <div class="mb-0 form-floating controls pb-2"><input class="form-control" type="text" id="title" required="" placeholder="title" name="title"  style="color:#4285F4;"><label class="form-label">Title</label><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div class="control-group">
-                            <div class="mb-5 form-floating controls pb-2"><textarea class="form-control" id="message" required="" placeholder="Message" style="height: 150px; color:#FBBC04;"></textarea><label class="form-label">Message</label><small class="form-text text-danger help-block"></small></div>
+                            <div class="mb-5 form-floating controls pb-2"><textarea class="form-control" id="message" required="" placeholder="Message" name="message"  style="height: 150px; color:#FBBC04;"></textarea><label class="form-label">Message</label><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div id="success"></div>
                         <div><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" style="background-color:#34A853;width: 100%;font-size: 15px;">Send</button></div>
@@ -175,6 +175,25 @@
         preload.style.display="none";
       }
 
+    </script>
+    <script>
+      var form = document.getElementById('sheetdb-form');
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(form.action, {
+            method : "POST",
+            body: new FormData(document.getElementById("sheetdb-form")),
+        }).then(
+            response => response.json()
+        ).then((html) => {
+          // you can put any JS code here
+          document.getElementById("name").value="";
+          document.getElementById("email").value="";
+          document.getElementById("title").value="";
+          document.getElementById("message").value="";
+          alert("Thanks for your concern. We will get in touch with you soon.")
+        });
+      });
     </script>
 </body>
 
