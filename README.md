@@ -1,3 +1,3 @@
-# astreffect.github.io
+# gdsc-rkmgec.github.io
 GDSC RKMGEC 
-<a href="https://astreffect.github.io">visit</a>
+<a href="https://gdsc-rkmgec.github.io/">visit</a>
