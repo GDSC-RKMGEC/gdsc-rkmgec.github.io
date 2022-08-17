@@ -12259,7 +12259,7 @@ hr.star-dark:after {
     top: -0.8em;
     display: inline-block;
     padding: 0 .25em;
-    content: "";
+    /* content: ""; */
     font-family: FontAwesome;
     font-size: 2em
 }
